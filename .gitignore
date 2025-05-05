@@ -73,3 +73,5 @@ build/
 # Runtime
 runtime.txt
 .env
+advanced_board/__pycache__/__init__.cpython-310.pyc
+advanced_board/__pycache__/settings.cpython-310.pyc
