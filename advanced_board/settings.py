@@ -1,7 +1,20 @@
 import os
-from dotenv import load_dotenv
+import environ
 
-load_dotenv()
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+env = environ.Env()
+# <-- load your .env into the ENV
+env.read_env(os.path.join(BASE_DIR, '.env'))
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG      = env.bool('DEBUG', default=True)
+
+TWITCH_CLIENT_ID   = env('TWITCH_CLIENT_ID')
+TWITCH_OAUTH_TOKEN = env('TWITCH_OAUTH_TOKEN')
+TMDB_KEY = env('TMDB_API_KEY')
+NEWSAPI_KEY = env('NEWSAPI_KEY')
+
 
 """
 Django settings for advanced_board project.
@@ -30,10 +43,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = []
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
-# Application definition
+# Application definition 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'board', 
 ]
 
 MIDDLEWARE = [
@@ -121,6 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'board', 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

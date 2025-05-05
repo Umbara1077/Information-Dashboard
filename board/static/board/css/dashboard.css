@@ -1,0 +1,85 @@
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  h2.section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #222;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: .5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Container tweaks */
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* Card grid */
+  .row.dashboard-row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  .row.dashboard-row > .col-6,
+  .row.dashboard-row > .col-sm-4,
+  .row.dashboard-row > .col-md-3,
+  .row.dashboard-row > .col-lg-2 {
+    padding: 0 0.5rem;
+  }
+  
+  /* Card styles */
+  .card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    background: #e9ecef;
+  }
+  .card-body {
+    padding: 0.75rem;
+  }
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+  .card-text {
+    font-size: .85rem;
+    margin-bottom: 0.5rem;
+  }
+  .card-text.meta {
+    color: #666;
+    font-size: .75rem;
+    margin-top: auto;
+  }
+  
+  /* News cards full-width on md+ */
+  .news-card {
+    margin-bottom: 1rem;
+  }
+  .news-card .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .news-card .card-title a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  .news-card .card-title a:hover {
+    text-decoration: underline;
+  }
+  

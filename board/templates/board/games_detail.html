@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ game.cover_url }}" class="img-fluid rounded mb-3" alt="{{ game.name }}">
+    </div>
+    <div class="col-md-8">
+      <h1>{{ game.name }}</h1>
+      <p><strong>Release Date:</strong> {{ game.first_release_date|date:"M j, Y" }}</p>
+      <p>{{ game.summary }}</p>
+      {% if game.genres %}
+        <p><strong>Genres:</strong> {{ game.genres|join:", " }}</p>
+      {% endif %}
+      {% if game.platforms %}
+        <p><strong>Platforms:</strong> {{ game.platforms|join:", " }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

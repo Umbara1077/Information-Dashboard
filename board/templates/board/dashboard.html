@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+  <!-- Games -->
+  <h2 class="section-title">New Video Game Releases (Last 30 Days)</h2>
+  <div class="row dashboard-row">
+    {% for g in games %}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card h-100 shadow-sm">
+          {% if g.cover_url %}
+            <img src="{{ g.cover_url }}" class="card-img-top" alt="{{ g.name }}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-truncate">{{ g.name }}</h5>
+            <p class="card-text meta">Released</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Movies In Theaters -->
+  <h2 class="section-title">New Movies</h2>
+  <div class="row dashboard-row">
+    {% for m in movies_theaters %}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card h-100 shadow-sm">
+          {% if m.poster_url %}
+            <img src="{{ m.poster_url }}" class="card-img-top" alt="{{ m.title }}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-truncate">{{ m.title }}</h5>
+            <p class="card-text meta">{{ m.release_date }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Upcoming Movies -->
+  <h2 class="section-title">Upcoming Movies</h2>
+  <div class="row dashboard-row">
+    {% for m in movies_upcoming %}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card h-100 shadow-sm">
+          {% if m.poster_url %}
+            <img src="{{ m.poster_url }}" class="card-img-top" alt="{{ m.title }}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-truncate">{{ m.title }}</h5>
+            <p class="card-text meta">{{ m.release_date }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Tech News -->
+  <h2 class="section-title">Tech News</h2>
+  <div class="row dashboard-row">
+    {% for a in tech_news %}
+      <div class="col-12 col-md-6">
+        <div class="card news-card shadow-sm">
+          {% if a.urlToImage %}
+            <img src="{{ a.urlToImage }}" class="card-img-top" alt="{{ a.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{ a.url }}" target="_blank">{{ a.title }}</a>
+            </h5>
+            {% if a.description %}
+              <p class="card-text">{{ a.description }}</p>
+            {% endif %}
+            <p class="card-text meta">
+              {{ a.source.name }} • {{ a.publishedAt|slice:":10" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- General News -->
+  <h2 class="section-title">Top News</h2>
+  <div class="row dashboard-row">
+    {% for a in general_news %}
+      <div class="col-12 col-md-6">
+        <div class="card news-card shadow-sm">
+          {% if a.urlToImage %}
+            <img src="{{ a.urlToImage }}" class="card-img-top" alt="{{ a.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{ a.url }}" target="_blank">{{ a.title }}</a>
+            </h5>
+            {% if a.description %}
+              <p class="card-text">{{ a.description }}</p>
+            {% endif %}
+            <p class="card-text meta">
+              {{ a.source.name }} • {{ a.publishedAt|slice:":10" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
